@@ -1,0 +1,45 @@
+--  1: Top 5 students by average score
+-- 
+-- 
+-- 
+-- -- SELECT "gender", "math score", "reading score", "writing score",
+-- --        ("math score" + "reading score" + "writing score")/3.0 AS avg_score
+-- -- FROM "StudentsPerformance"
+-- -- ORDER BY avg_score DESC
+-- -- LIMIT 5;
+-- -- 
+-- -- 2: Average scores by gender
+-- 
+-- -- SELECT gender,
+-- --        ROUND(AVG("math score"),2)   AS avg_math,
+-- --        ROUND(AVG("reading score"),2)AS avg_reading,
+-- --        ROUND(AVG("writing score"),2)AS avg_writing
+-- -- FROM StudentsPerformance
+-- -- GROUP BY gender;
+-- 
+-- 3: Average score by test preparation course completion
+-- 
+-- SELECT "test preparation course",
+--        ROUND(AVG(("math score" + "reading score" + "writing score")/3.0),2) AS avg_score
+-- FROM StudentsPerformance
+-- GROUP BY "test preparation course";
+-- 
+--  4: Student count by performance category
+-- 
+-- SELECT CASE
+--            WHEN ("math score" + "reading score" + "writing score")/3.0 < 50 THEN 'Low'
+--            WHEN ("math score" + "reading score" + "writing score")/3.0 < 75 THEN 'Medium'
+--            ELSE 'High'
+--        END AS performance_category,
+--        COUNT(*) AS student_count
+-- FROM StudentsPerformance
+-- GROUP BY performance_category;
+-- 
+-- -- 5: Top race/ethnicity group by average total score
+-- 
+-- SELECT "race/ethnicity",
+--        ROUND(AVG("math score" + "reading score" + "writing score"),2) AS avg_total
+-- FROM StudentsPerformance
+-- GROUP BY "race/ethnicity"
+-- ORDER BY avg_total DESC
+-- LIMIT 1;
